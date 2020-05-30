@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak]{
+            display : none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h1>{{message}}</h1>
+    </div>
+    <script>
+           // 在vue解析之前，div有一个v-cloak的属性
+           // 在vue解析之后，v-cloak属性消失
+        setTimeout(function(){
+            let app = new Vue({
+            el : "#app",
+            data : {
+                message : "你好"
+            }
+        })
+        },1000)
+        
+    </script>
+</body>
+</html>
