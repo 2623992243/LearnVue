@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 1、拼接 -->
+        <p>{{firstName + " " + lastName}}</p>
+        <!-- 2、methods方法 -->
+        <p>{{getFullName()}}</p>
+        <p>{{getFullName()}}</p>
+        <p>{{getFullName()}}</p>
+        <!-- 3、计算属性 -->
+        <p>{{fullName}}</p>
+        <p>{{fullName}}</p>
+        <p>{{fullName}}</p>
+    </div>
+    <script>
+        // methods方法执行每次需要调用，computed内容没变，只会调用一次
+        let app = new Vue({
+            el : "#app",
+            data : {
+                firstName : "a",
+                lastName : "b"
+            },
+            methods : {
+                getFullName : function(){
+                    console.log("methods");
+                    return this.firstName + " " + this.lastName
+                }
+            },
+            computed : {
+                fullName : function(){
+                    console.log("computed")
+                    return this.firstName + " " + this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+</html>
