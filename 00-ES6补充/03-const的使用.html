@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                name : "刘德华"
+            }
+        })
+
+        // 1、一旦const标识符赋值后，不能修改
+        // const name = "刘德华"
+        // name = "周杰伦"
+        // console.log(name)
+
+        // 2、在使用const标识符，必须进行赋值
+        // const name;
+
+        // 3、常量的含义是指向的对象不能修改，但是可以改变对象内部的属性
+        const obj = {
+            name : "aaa",
+            age : 16
+        }
+
+        console.log(obj);
+
+        obj.name = "bbb"
+        obj.age = 20
+        console.log(obj)
+    </script>
+</body>
+</html>

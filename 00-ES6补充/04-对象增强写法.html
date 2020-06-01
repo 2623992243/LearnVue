@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <script>
+        // 1、属性的简写
+        // let name = "刘德华"
+        // let age = 20
+
+        // //ES6之前
+        // let obj1 = {
+        //     name : name,
+        //     age : age
+        // }
+        // console.log(obj1)
+
+        // //ES6后
+        // let obj2 = {
+        //     name,age
+        // }
+
+        // console.log(obj2)
+
+        // 2、方法的简写
+        let obj1 = {
+            test : function(){
+                console.log("111")
+            }
+        }
+        obj1.test()
+
+        let obj2 = {
+            test(){
+                console.log("222")
+            }
+        }
+        obj2.test()
+    </script>
+</body>
+</html>
