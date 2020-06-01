@@ -14,7 +14,7 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="(m,index) in movies"><p v-bind:id="index" v-bind:class="{red : isColor}" v-on:click="changeColor()">{{m}}</p></li>
+            <li v-for="(m,index) in movies"><p :class="{red : isColor}" @click="changeColor(index)">{{m}}</p></li>
         </ul>
     </div>
     <script>
@@ -25,7 +25,8 @@
                 isColor : false
             },
             methods : {
-                changeColor : function(){
+                changeColor(index){
+                    console.log(index)
                     this.isColor = !this.isColor
                 }
             }

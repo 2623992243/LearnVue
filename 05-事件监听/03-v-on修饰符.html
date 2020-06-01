@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 1、stop修饰符的使用 -->
+        <div @click="divClick">
+            11111111
+            <button @click.stop="btnClick">按钮</button>
+        </div>
+
+        <!-- 2、prevent修饰符的使用 -->
+        <br>
+        <form action="baidu">
+            <input type="submit" value="提交" @click.prevent='submitClick'>
+        </form>
+
+        <!-- 3、监听按键 -->
+        <input type="text" @keyup.enter="keyClick">
+
+        <!-- 4、点击回调只会触发一次 -->
+        <button @click.once="doThis">安安安</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                
+            },
+            methods : {
+                divClick(){
+                    console.log("divClick")
+                },
+                btnClick(){
+                    console.log("btnClick")
+                },
+                submitClick(){
+                    console.log("submitClick")
+                },
+                keyClick(){
+                    console.log("keyup");
+                },
+                doThis(){
+                    console.log("13245321532")
+                }
+            }
+        })
+    </script>
+</body>
+</html>
