@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="value in arr">{{value}}</li>
+            <button @click="btnClick">点击</button>
+        </ul>
+    </div>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                arr : [
+                    'a','b','c','d'
+                ]
+            },
+            methods : {
+                btnClick(){
+                    // push() 在数组后面添加元素
+                    // this.arr.push("e","f")
+
+                    // pop() 删除数组中的最后一个元素
+                    // this.arr.pop()
+
+                    // shift() 删除数组中的第一个元素
+                    // this.arr.shift()
+
+                    // unshift() 在数组最前面添加元素
+                    // this.arr.unshift("1","2")
+
+                    // splice()的作用：删除、替换、添加
+                    // 第一个参数表示从数组第几个开始
+                    // 第二个参数表示删除几个
+                    // 第三个添加的字符
+                    // this.arr.splice('1','1','a' ,'b')
+
+                    // reverse()数组反转
+                    // this.arr.reverse()
+
+                    // this.arr.splice('0','1','bbbbbb')
+                    Vue.set(this.arr,0,'bbbbbbbbb')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

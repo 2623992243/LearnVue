@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-if="isLogin">
+            <label for="username">账号登录</label>
+            <input type="text" placeholder="请输入账号" id="username" key="username">
+        </span>
+        <span v-else>
+            <label for="email">邮箱登录</label>
+            <input type="email" placeholder="请输入邮箱" id="email" key="email">
+        </span>
+        <button @click="isLogin = !isLogin">切换</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                isLogin : true
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if指令为false时，包含v-if指令的元素，根本不会显示在dom中 -->
+        <p v-if="isShow">6</p>
+        <!-- v-show为false时，v-show只是给我们的元素添加一个行内样式display：none -->
+        <p v-show="isShow">6</p>
+    </div>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                isShow : true
+            }
+        })
+    </script>
+</body>
+</html>

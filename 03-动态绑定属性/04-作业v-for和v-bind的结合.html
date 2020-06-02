@@ -6,7 +6,7 @@
     <title>Document</title>
     <script src="../js/vue.js"></script>
     <style>
-        .red{
+        .active{
             color : red
         }
     </style>
@@ -14,20 +14,19 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="(m,index) in movies"><p :class="{red : isColor}" @click="changeColor(index)">{{m}}</p></li>
+            <li v-for="value,index in movies" :class="{active:currentIndex === index}" @click="btnClick(index)">{{index}}--{{value}}</li>
         </ul>
     </div>
     <script>
-        let app = new Vue({
+        const app = new Vue({
             el : "#app",
             data : {
-                movies : ['海王','海尔兄弟','进击的巨人','黑猫警长'],
-                isColor : false
+                movies : ["黑猫警长","神奇宝贝","数码宝贝","死神来了"],
+                currentIndex : 0
             },
             methods : {
-                changeColor(index){
-                    console.log(index)
-                    this.isColor = !this.isColor
+                btnClick(index){
+                    this.currentIndex = index
                 }
             }
         })
