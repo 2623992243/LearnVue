@@ -14,7 +14,7 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="value,index in movies" :class="{active:currentIndex === index}" @click="btnClick(index)">{{index}}--{{value}}</li>
+            <li v-for="value,index in movies" :class="{active:currentIndex === index}" @click="btnClick(index)">{{index+1}}--{{value}}</li>
         </ul>
     </div>
     <script>
