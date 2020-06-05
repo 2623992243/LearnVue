@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-cpn></my-cpn>
+        <my-cpn2></my-cpn2>
+    </div>
+    <script>
+        //组件语法糖简化了Vue.extend操作，但是内部还是会进行
+        //全局组件语法糖
+        Vue.component('my-cpn',{
+            template : `
+                <div>
+                    <h2>我是标题啊啊啊</h2>
+                    <p>复活甲垦利街道疯狂拉屎了健康</p>    
+                </div>
+            `
+        })
+        const app = new Vue({
+            //局部组件语法糖
+            el : "#app",
+            components : {
+                'my-cpn2' : {
+                    template : `
+                        <div>
+                            <h1>哈哈哈哈哈</h1>
+                            <p>啊啊啊啊啊啊啊</p>
+                        </div>
+                    `
+                }
+            }
+        })
+    </script>
+</body>
+</html>
