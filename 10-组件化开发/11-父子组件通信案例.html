@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <cpn :number1="num1" 
+             :number2="num2"
+             @change1="change1"
+             @change2="change2"></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h1>props:{{number1}}</h1>
+            <h1>data:{{dnumber1}}</h1>
+            <!-- <input type="text" v-model="dnumber1"> -->
+            <input type="text" :value="dnumber1" @input="changeNumber1">
+            <h1>props:{{number2}}</h1>
+            <h1>data:{{dnumber2}}</h1>
+            <input type="text" v-model="dnumber2" @input="changeNumber2">
+        </div>
+    </template>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data : {
+                num1 : 1,
+                num2 : 2
+            },
+            components : {
+                cpn : {
+                    template : "#cpn",
+                    props : {
+                        number1 : {
+                            type : Number
+                        },
+                        number2 : {
+                            type : Number
+                        }
+                    },
+                    data(){
+                        return {
+                            dnumber1 : this.number1,
+                            dnumber2 : this.number2
+                        }
+                    },
+                    methods : {
+                        changeNumber1(){
+                            this.dnumber1 = event.target.value
+                            //发射
+                            this.$emit('change1',this.dnumber1)
+                            this.dnumber2 = this.dnumber1 * 100
+                            this.$emit('change2',this.dnumber2)
+                        },
+                        changeNumber2(){
+                            this.dnumber2 = event.target.value
+                            //发射
+                            this.$emit('change2',this.dnumber2)
+                            this.dnumber1 = this.dnumber2 / 100
+                            this.$emit('change1',this.dnumber1)
+                        }
+                    }
+                }
+            },
+            methods : {
+                change1(dnumber1){
+                    this.num1 = parseFloat(dnumber1)
+                },
+                change2(dnumber2){
+                    this.num2 = parseFloat(dnumber2)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
